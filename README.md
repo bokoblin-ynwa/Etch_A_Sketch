@@ -1,1 +1,1 @@
-# Etch_A_Sketch
+In this project I will demonstrate DOM skills that I have been working on in the past few lessons.# Etch_A_Sketch
