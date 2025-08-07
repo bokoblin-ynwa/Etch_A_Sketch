@@ -25,9 +25,7 @@ function createGrid(container, rows = 16, cols = 16) {
         cell.addEventListener('mouseover', function() {
             cell.style.backgroundColor = colorRandomizer();
         });
-       /* cell.style.border = 'black solid 2px';*/    // Border added to confirm cells were created
         cellContainer.appendChild(cell);
-        
     }
 }
 

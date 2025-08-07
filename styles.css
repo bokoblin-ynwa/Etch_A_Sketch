@@ -1,0 +1,22 @@
+.btns {
+text-align: center;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+font-size: 28px;
+font-weight: 400;
+color: rgb(225, 197, 36);
+border-radius: 7px;
+border: solid 4px rgb(110, 9, 9);
+background-color: crimson;
+width: 200px;
+height: 60px;
+text-decoration: wavy;
+}
+
+#buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: end;
+    background-color: rgb(141, 88, 189);
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
