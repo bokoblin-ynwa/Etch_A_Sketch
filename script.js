@@ -1,5 +1,8 @@
 const gridContainer = document.getElementById('container');
 gridContainer.setAttribute("style", "height: 600px; width: 600px; display: flex; flex-direction: colum; align-items: center; margin: auto; border: 7px solid black; border-radius: 5px");
+const colorBtn = document.getElementById('colBtn');
+const blackBtn = document.getElementById('blkBtn');
+const sizeBtn = document.getElementById('cellBtn');
 
 function colorRandomizer() {
     const r = Math.floor(Math.random() * 256);
@@ -26,22 +29,27 @@ function createGrid(container, size = 16) {
             cell.style.backgroundColor = colorRandomizer();
         });
         cellContainer.appendChild(cell);
+        blackBtn.addEventListener("click", () => {
+            cell.addEventListener('mouseover', function(){
+                cell.style.backgroundColor = "black"
+            });
+        });
+        colorBtn.addEventListener("click", () => {
+            cell.addEventListener('mouseover', function () {
+                cell.style.backgroundColor = colorRandomizer()
+            });
+        });
     }
 }
 
 createGrid('container');
 
-
-const colorBtn = document.getElementById('colBtn');
-const blackBtn = document.getElementById('blkBtn');
-const sizeBtn = document.getElementById('cellBtn');
-
 function greaterGrid() {
+    gridContainer.textContent=""
     const newSize = prompt("please enter a number up to 100, no greater!:");
     if (newSize === null) {
         return;
     }
-    newSize = parseInt(newSize);
     if (isNaN(newSize) || newSize <= 0) {
         alert("Please enter a valid number");
         return;
@@ -52,9 +60,6 @@ function greaterGrid() {
     }
     createGrid(container, newSize)
 }
-
 sizeBtn.addEventListener("click", function() {
     greaterGrid()
 });
-
-
