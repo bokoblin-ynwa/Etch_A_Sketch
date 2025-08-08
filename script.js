@@ -10,13 +10,13 @@ function colorRandomizer() {
 }
 console.log(colorRandomizer())
 
-function createGrid(container, rows = 16, cols = 16) {
+function createGrid(container, size = 16) {
     const cellContainer = document.getElementById('container');
-    for(let i = 0; i < rows * cols; i++) {
+    for(let i = 0; i < size * size; i++) {
         const cell = document.createElement('div');
         cellContainer.style.display = 'grid';
-        cellContainer.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
-        cellContainer.style.gridTemplateRows = `repeat(${ rows}, 1fr)`;
+        cellContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+        cellContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`;
         cellContainer.style.width = '600px';
         cellContainer.style.height = '600px';
         cell.classList.add('grid-item');
@@ -30,3 +30,31 @@ function createGrid(container, rows = 16, cols = 16) {
 }
 
 createGrid('container');
+
+
+const colorBtn = document.getElementById('colBtn');
+const blackBtn = document.getElementById('blkBtn');
+const sizeBtn = document.getElementById('cellBtn');
+
+function greaterGrid() {
+    const newSize = prompt("please enter a number up to 100, no greater!:");
+    if (newSize === null) {
+        return;
+    }
+    newSize = parseInt(newSize);
+    if (isNaN(newSize) || newSize <= 0) {
+        alert("Please enter a valid number");
+        return;
+    }
+    if (newSize > 100) {
+        alert("Please enter a valid number, maximum value is 100");
+        return;
+    }
+    createGrid(container, newSize)
+}
+
+sizeBtn.addEventListener("click", function() {
+    greaterGrid()
+});
+
+
